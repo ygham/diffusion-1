@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-from IPython import get_ipython
-ipython = get_ipython()
-ipython.magic("reset -f")
-from tabulate import tabulate # temporary
+#from IPython import get_ipython
+#ipython = get_ipython()
+#ipython.magic("reset -f")
+#from tabulate import tabulate # temporary
 
 import os, sys
 import numpy as np
@@ -271,7 +271,7 @@ def gen_figures():
     if high_res:
         name = 'images/{}_map_{:05d}.png'.format(tag,global_clap)
     plt.savefig(name, bbox_inches='tight')
-    plt.show()
+    #plt.show()
     plt.close(map_figure)
 
     clean = []
@@ -303,7 +303,7 @@ def gen_figures():
     if high_res:
         name = 'images/{}_distribution_{:05d}.png'.format(tag,global_clap)
     plt.savefig(name, bbox_inches='tight')
-    plt.show()
+    #plt.show()
     plt.close(distribution) 
 
 
@@ -315,8 +315,7 @@ def run_case(tag):
     for global_clap in range(2001):
         print global_clap
         figure_output = False
-        #if global_clap in [0,1,2,3,5,10,20,30,40,50,100,200,300,400,500,1000,2000]:
-        if global_clap in [1,1000,2000]:
+        if global_clap in [0,1,2,3,5,10,20,30,40,50,100,200,300,400,500,1000,2000]:
             figure_output = True
         on_clap(figures=figure_output)
 
@@ -332,20 +331,20 @@ global_clap=0
 
 # run the various cases
 
-#tag ='source_right_sink_left'
-#n_rows = 10
-#n_columns = 10
-#high_res = False
-#interior_fill = []
-#right_source = True
-#left_source = False
-#right_sink = False
-#left_sink = True
-## reset theatre
-#theatre = np.zeros((n_rows,n_columns), dtype=object)
-#column_occupancy_list = []
-#run_case(tag)
-#
+tag ='source_right_sink_left'
+n_rows = 10
+n_columns = 10
+high_res = False
+interior_fill = []
+right_source = True
+left_source = False
+right_sink = False
+left_sink = True
+# reset theatre
+theatre = np.zeros((n_rows,n_columns), dtype=object)
+column_occupancy_list = []
+run_case(tag)
+
 #tag ='source_right_sink_left_high_res'
 #n_rows = 50
 #n_columns = 50
@@ -359,7 +358,7 @@ global_clap=0
 #theatre = np.zeros((n_rows,n_columns), dtype=object)
 #column_occupancy_list = []
 #run_case(tag)
-#
+
 #tag ='source_right_source_left'
 #n_rows = 10
 #n_columns = 10
@@ -373,18 +372,18 @@ global_clap=0
 #column_occupancy_list = []
 #run_case(tag)
 
-tag ='source_right_source_left_high_res'
-n_rows = 50
-n_columns = 50
-high_res = True
-interior_fill = []
-right_source = True
-left_source = True
-right_sink = False
-left_sink = False
-theatre = np.zeros((n_rows,n_columns), dtype=object)
-column_occupancy_list = []
-run_case(tag)
+#tag ='source_right_source_left_high_res'
+#n_rows = 50
+#n_columns = 50
+#high_res = True
+#interior_fill = []
+#right_source = True
+#left_source = True
+#right_sink = False
+#left_sink = False
+#theatre = np.zeros((n_rows,n_columns), dtype=object)
+#column_occupancy_list = []
+#run_case(tag)
 
 #tag ='interior_fill'
 #n_rows = 10
@@ -398,7 +397,7 @@ run_case(tag)
 #theatre = np.zeros((n_rows,n_columns), dtype=object)
 #column_occupancy_list = []
 #run_case(tag)
-#
+
 #tag ='interior_fill_high_res'
 #n_rows = 50
 #n_columns = 50
